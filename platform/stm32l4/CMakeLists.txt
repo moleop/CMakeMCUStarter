@@ -54,6 +54,7 @@ target_compile_definitions(${BINARY_NAME} PUBLIC
 
 # List of includ directories
 target_include_directories(${BINARY_NAME} PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc 
         ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32L4xx_HAL_Driver/Inc 
         ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/STM32L4xx_HAL_Driver/Inc/Legacy 

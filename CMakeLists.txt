@@ -8,13 +8,25 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# set the compiler flags for platform
-include(PlatformOptions.cmake)
 
-add_subdirectory(bsp)
+include(FetchContent)
+include(PlatformOptions.cmake)
+include(cmake/Doxygen.cmake)
+
+set(EXCLUDE_PATHS_FROM_DOC 
+    "${CMAKE_SOURCE_DIR}/platform/stm32l4"
+    "${CMAKE_SOURCE_DIR}/platform/stm32f4"
+    "${CMAKE_SOURCE_DIR}/platform/host")
+
+enable_doxygen("" ${EXCLUDE_PATHS_FROM_DOC})
+
+add_subdirectory(platform)
 
 # platform independent sources
 set (PROJECT_SOURCES )
+
+set(MAIN_SOURCE)
+select_platform_dependent_main(MAIN_SOURCE)
 
 set(EXECUTABLE ${PROJECT_NAME})
 add_executable(${EXECUTABLE} ${MAIN_SOURCE} ${PROJECT_SOURCES})

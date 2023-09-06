@@ -2,7 +2,7 @@
     "version": 3,
     "cmakeMinimumRequired": {
         "major": 3,
-        "minor": 21,
+        "minor": 23,
         "patch": 0
     },
     "configurePresets": [
@@ -55,23 +55,25 @@
             }
         },
         {
-            "name": "windows-arm-none-eabi-gcc-debug",
-            "displayName": "arm-none-eabi-gcc Debug",
+            "name": "STM32L4 windows-arm-none-eabi-gcc-debug",
+            "displayName": "STM32L4 arm-none-eabi-gcc Debug",
             "description": "Target Windows with the arm-none-eabi-gcc compiler, debug build type",
             "inherits": "conf-windows-common",
             "toolchainFile": "${sourceDir}/cmake/toolchain/arm-none-eabi-gcc.cmake",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "HW_PLATFORM": "STM32L4"
             }
         },
         {
-            "name": "windows-arm-none-eabi-gcc-release",
-            "displayName": "arm-none-eabi-gcc Release",
+            "name": "STM32L4 windows-arm-none-eabi-gcc-release",
+            "displayName": "STM32L4 arm-none-eabi-gcc Release",
             "description": "Target Windows with the arm-none-eabi-gcc compiler, release build type",
             "inherits": "conf-windows-common",
             "toolchainFile": "${sourceDir}/cmake/toolchain/arm-none-eabi-gcc.cmake",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Release",
+                "HW_PLATFORM": "STM32L4"
             }
         },
         {
