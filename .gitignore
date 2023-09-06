@@ -1,9 +1,9 @@
 .vscode
 build
 
-platform/stm32l4/Core
-platform/stm32l4/Drivers
-platform/stm32l4/.mxproject
-platform/stm32l4/Makefile
-platform/stm32l4/startup_stm32l452xx.s
-platform/stm32l4/STM32L452RETx_FLASH.ld
+src/platform/stm32l4/Core
+src/platform/stm32l4/Drivers
+src/platform/stm32l4/.mxproject
+src/platform/stm32l4/Makefile
+src/platform/stm32l4/startup_stm32l452xx.s
+src/platform/stm32l4/STM32L452RETx_FLASH.ld

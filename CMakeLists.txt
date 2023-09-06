@@ -14,23 +14,12 @@ include(PlatformOptions.cmake)
 include(cmake/Doxygen.cmake)
 
 set(EXCLUDE_PATHS_FROM_DOC 
-    "${CMAKE_SOURCE_DIR}/platform/stm32l4"
-    "${CMAKE_SOURCE_DIR}/platform/stm32f4"
-    "${CMAKE_SOURCE_DIR}/platform/host")
-
+    "${CMAKE_SOURCE_DIR}/src/platform/stm32l4"
+    "${CMAKE_SOURCE_DIR}/src/platform/stm32f4"
+    "${CMAKE_SOURCE_DIR}/src/platform/host")
 enable_doxygen("" ${EXCLUDE_PATHS_FROM_DOC})
 
-add_subdirectory(platform)
-
-# platform independent sources
-set (PROJECT_SOURCES )
-
-set(MAIN_SOURCE)
-select_platform_dependent_main(MAIN_SOURCE)
-
-set(EXECUTABLE ${PROJECT_NAME})
-add_executable(${EXECUTABLE} ${MAIN_SOURCE} ${PROJECT_SOURCES})
-target_link_libraries(${EXECUTABLE} PRIVATE platform)
+add_subdirectory(src)
 
 include(CTest)
 enable_testing()
